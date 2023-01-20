@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css'>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+    />
+    <title>Grilla jquery</title>
+</head>
+<body>
+
+    <style>
+        table{
+            margin-left: -120px;
+
+        }
+
+        button {
+            margin-left: -110px;
+            margin-bottom: 30px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="section">
+            <label class="label" for="filtro">Filtrar:</label>
+            <input type="search" id="filtro" class="input" placeholder="Escribe aqui el filtro"><br><br>
+            <table class="table">
+                <thead class="thead">
+                    <tr class="tr">
+                        <th class="th">ID</th>
+                        <th class="th">Name</th>
+                        <th class="th">Username</th>
+                        <th class="th">E-mail</th>
+                        <th class="th">Address-Street</th>
+                        <th class="th">Address-Suite</th>
+                        <th class="th">Address-City</th>
+                        <th class="th">Phone</th>
+                        <th class="th">Website</th>
+                        <th class="th">Company-Name</th>  
+                        <th class="th">Company-Business</th>  
+                    </tr>
+                </thead>
+                <tbody id="res" class="tbody">
+                    <tr class="tr" id="tr">
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                        <td class="td" id="td"></td>
+                    </tr>   
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <script src="grilla.js"></script>
+</body>
+</html>

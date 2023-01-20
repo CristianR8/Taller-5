@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css'>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+    />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <title>Formulario con validacion</title>
+  </head>
+  <body>
+    <form id="contenedor" class="contenedor">
+      <h1 class="title">Registrate</h1>
+      <div class="field" id="grupo_nombre">
+        <label class="label">Nombre:</label>
+        <div class="control has-icons-right">
+          <input
+            id="nombre"
+            class="input"
+            type="text"
+            placeholder="Ingrese su nombre aqui"
+          />
+          <span class="icon is-small is-right">
+            <i class="fas"></i>
+          </span>
+        </div>
+        <p id="ayuda_nombre" class="help">
+          El nombre debe tener entre 4 y 25 caracteres. Puede tener letras,
+          numero y guiones (a-Z/0-9/-/_)
+        </p>
+      </div>
+      <div id="grupo_apellido" class="field">
+        <label class="label">Apellido:</label>
+        <div class="control has-icons-right">
+          <input
+            id="apellido"
+            class="input"
+            type="text"
+            placeholder="Ingrese su apellido aqui"
+          />
+          <span class="icon is-small is-right">
+            <i class="fas"></i>
+          </span>
+          <p id="ayuda_apellido" class="help">
+            El apellido debe tener entre 4 y 25 caracteres. Puede tener letras,
+            numero y guiones (a-Z/0-9/-/_)
+          </p>
+        </div>
+      </div>
+      <div id="grupo_nacimiento" class="field">
+        <div class="control">
+        <label class="label">Fecha de nacimiento:</label>
+        <input type="text" id="fecha_nacimiento" class="input" placeholder="Seleccione aqui su edad"><br><br>
+        <label class=""><strong>Edad:</strong></label>
+        <input type="text" id="age" class="input is-static" disabled></input>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            let age = "";
+            $('#fecha_nacimiento').datepicker({
+              onSelect: function (value, ui){
+                let today = new Date();
+                age = today.getFullYear() - ui.selectedYear;  
+                $('#age').val(age);
+              },
+              changeMonth: true,
+              changeYear: true,
+            }) 
+          })
+        </script>
+        </div>
+      </div>
+      <div id="grupo_email" class="field">
+        <label class="label">E-mail</label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            id="email"
+            class="input"
+            type="text"
+            placeholder="Ingrese el email aqui"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas"></i>
+          </span>
+        </div>
+        <p id="ayuda_usuario" class="help">El correo debe ser valido.</p>
+      </div>
+      <div id="grupo_contraseña" class="field">
+        <label class="label">Contraseña</label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            id="contraseña"
+            class="input"
+            type="password"
+            placeholder="Ingrese su contraseña aqui"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas"></i>
+          </span>
+        </div>
+        <p id="ayuda_contraseña" class="help">
+          La contraseña debe tener entre 10 y 20 caracteres. Debe tener al
+          menos: una letra mayuscula, una letra minuscula, un numero y un
+          caracter especial (@$!%*.#&)
+        </p>
+      </div>
+      <div id="grupo_confirmar_contraseña" class="field">
+        <label class="label">Confirme su contraseña</label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            id="ccontraseña"
+            class="input"
+            type="password"
+            placeholder=""
+            onblur="verificar_pass()"
+            onkeyup="verificar_pass()"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock-open"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas"></i>
+          </span>
+        </div>
+        <p
+          id="ayuda_confirmar_contraseña"
+          class="help"
+          onblur="verificar_pass()"
+          onkeyup="verificar_pass()"
+        >
+          Los campos no coinciden.
+        </p>
+      </div>
+      <div id="grupo_opciones" class="field">
+        <label class="label">¿Ha sufrido enfermedades contagiosas?</label>
+        <input name="opciones" type="radio" class="radio" id="siks" onchange="verificar_eleccion()" >Si</input>
+        <input name="opciones" type="radio" class="radio" id="noks" onchange="verificar_eleccion()" >No</input> 
+      </div>
+
+      
+      
+      <div class="container">
+        <div class='columns is-mobile is-centered'>
+          <div class='column is-5'>
+              <div class='list' id="lista_enfermedades">
+                <h1 class="title is-4 has-text-centered" id="seleccion">Seleccionelas:</h1>
+                  <ul> 
+                      <div class='list-item has-background-dark'>
+                          <li>
+                            <input type="checkbox">
+                            Malaria
+                          </li>
+                      </div>
+                      <div class='list-item has-background-dark'>
+                          <li>
+                            <input type="checkbox">
+                            Sarampión
+                          </li>
+                      </div>
+
+                      <div class='list-item has-background-dark'>
+                          <li>
+                            <input type="checkbox">
+                              Parotiditis
+                          </li>
+                      </div>
+
+                      <div class='list-item has-background-dark'>
+                          <li>
+                            <input type="checkbox">
+                            Covid-19
+                          </li>
+                      </div>
+
+                      <div class='list-item has-background-dark'>
+                          <li>
+                            <input type="checkbox" id="otra" onchange="escribir_otra()">
+                            Otra 
+                            <input type="text" class="input"  id="input_otra" placeholder="Esribala">
+                          </li>
+                      </div>
+
+                  </ul>
+              </div>
+          </div>
+      </div>
+      </div>
+    <div class="control has-icons-left has-icons-right">
+      <div class="field">
+        <div class="control is-expanded">
+          <button type="submit" onclick="location.href='formulario.html'" class="button is-active" id="submit">Registrate</button>
+        </div>
+      </div>
+      <br />
+    </div>
+    <script src="main.js"></script>
+
+  </form>
+  </body>
+</html>

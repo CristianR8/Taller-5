@@ -70,11 +70,12 @@ const validarCampo = (expresion, input, campo) => {
 
 } 
 
+
 function verificar_pass()
 {
     var c1 = document.getElementById('contraseña').value
     var c2 = document.getElementById('ccontraseña').value
-
+    
     if (c1 != c2){
         document.getElementById('grupo_confirmar_contraseña').classList.remove("validacion_grupo-correcto")
         document.getElementById('grupo_confirmar_contraseña').classList.add("validacion_grupo-incorrecto")
@@ -90,7 +91,6 @@ function verificar_pass()
         campos['contraseña'] = true
     }
 }
-
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario);
     input.addEventListener('blur', validarFormulario);
@@ -102,3 +102,22 @@ contenedor.addEventListener('submit', (e)=>{
 });
 
 
+//--------------------- Campo opciones desplegables ---------------------//
+
+function verificar_eleccion(){
+    if(siks.checked==false){
+      document.getElementById('lista_enfermedades').style.display = "none";
+    } else {
+      document.getElementById('lista_enfermedades').style.display = "block"; 
+  }
+}
+
+function escribir_otra(){
+    if(otra.checked==false){
+      document.getElementById('input_otra').style.display = "none";
+    } else {
+      document.getElementById('input_otra').style.display = "block"; 
+  }
+}
+
+//-------------------   Grilla Jquery -------------------------//

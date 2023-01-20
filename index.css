@@ -29,8 +29,8 @@
 /* -------------------------------------------------------- */
 
       #contenedor {
-        padding: 30px;
-        background-image: linear-gradient(to left, #f4bdff, #fcfab2);
+        padding: 30px;  
+        background-image: linear-gradient(to left, #a5194c, #c3c9de);
         border: solid 15px rgb(255, 255, 255);
       }
       p {
@@ -50,3 +50,45 @@
        width: 200px;
        margin: 0;
       }
+
+/*-------------------------------------------------------------------*/
+
+div.columns {
+  margin-top: 80px;
+}
+
+div.columns {
+  margin-top: 20px;
+}
+
+li{
+  color: antiquewhite;
+}
+
+/* #lista_enfermedades{
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+} */
+
+#lista_enfermedades{
+  display: none;
+}
+
+#input_otra{
+  display:none;
+}
+
+/*-------------------------- Filtrar ----------------------------*/
+
+.filtro .tr{
+  display:none
+}  
+
+
+
+
+
+
+
+
